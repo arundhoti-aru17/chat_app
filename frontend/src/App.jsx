@@ -13,6 +13,7 @@ import Layout from './components/Layout.jsx'
 import { useThemeStore } from './store/useThemeStore.js'
 import NotificationsPage from './pages/NotificationPage.jsx'
 import Friends from './pages/Friends.jsx'
+import Profile from './pages/Profile.jsx'
 
 
 const App = () => {
@@ -113,8 +114,20 @@ const App = () => {
             )
           }
         />
+        <Route
+          path="/profile"
+          element={
+            isAuthenticated && isOnboarded ? (
+              <Layout showSidebar={true}>
+                <Profile/>
+              </Layout>
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+            )
+          }
+        />
       </Routes>
-
+        
       <Toaster />
     </div>
   );

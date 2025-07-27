@@ -46,7 +46,11 @@ const Navbar = () => {
 
           <div className="avatar">
             <div className="w-9 rounded-full">
+              <Link to={"/profile"}>
+              <button className="btn btn-ghost btn-circle">
               <img src={authUser?.profilePic} alt="User Avatar" rel="noreferrer" />
+              </button>
+            </Link>
             </div>
           </div>
 
